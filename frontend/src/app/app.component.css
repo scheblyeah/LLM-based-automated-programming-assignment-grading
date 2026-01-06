@@ -1,0 +1,169 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 20px;
+}
+
+input[type="text"] {
+  width: 600px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center; /* Changed to center to keep form centered */
+  align-items: flex-start;
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.main-form {
+  width: 85%; /* Define width for the main form */
+}
+
+.found-files-container {
+  width: 90%; /* Define width for the found files container */
+  height: 150px; /* Fixed height for scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px; /* Adjust font size if needed */
+}
+
+.found-files-output p {
+  margin: 0 0 5px 0; /* Small margin between filenames */
+  padding: 0;
+}
+
+
+.output-section {
+  width: 70%;
+  margin-left: 45px;
+}
+
+.output-container {
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+p {
+  margin: 0;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.disabled {
+  color: grey;
+  cursor: not-allowed;
+}
+
+.disabled input[type="checkbox"] {
+  pointer-events: none;
+}
+
+.form-label-like-header {
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+
+.form-element-container {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+}
+
+.form-element-container-tooltip {
+  display: flex;
+  align-items: center; /* Align label and button vertically */
+  gap: 8px; /* Add spacing between label and button */
+}
+
+.form-element-container-together {
+  padding-bottom: 10px;
+  margin-bottom: 10px;}
+
+
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mandatory-asterisk {
+  color: red;
+  font-weight: bold;
+  margin-left: 3px;
+  vertical-align: super;
+  font-size: 1em;
+}
+
+.loading-spinner {
+  position: fixed; /* Changed to fixed positioning */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+
+/* Ensure the button maintains proper size */
+button[mat-icon-button] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; /* Button size */
+  height: 24px;
+  padding: 0; /* Remove extra padding */
+  border-radius: 50%; /* Keep it circular */
+  margin-left: 0px; /* Add some space between label and icon */
+
+}
+
+/* Resize the mat-icon properly */
+button[mat-icon-button] mat-icon {
+  font-size: 16px; /* Adjust icon size */
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+}
+
+button[mat-icon-button]:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+.small-icon mat-icon {
+  font-size: 20px; /* Adjust this size as needed */
+}
+
+textarea { /* Target all textarea elements */
+  width: 600px; /* Set your desired width, same as your input[type="text"] was */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif; /* Ensure font consistency */
+  font-size: 16px; /* Ensure font size consistency */
+}

@@ -1,0 +1,119 @@
+<div>
+  <mat-toolbar class="cool-material-header" color="primary">
+    <span>Automated Programming Assignment Grading and Evaluation Tool</span>
+  </mat-toolbar>
+</div>
+
+<div class="page-container">
+  <div class="content-container">
+
+    <mat-spinner *ngIf="isLoadingResults" class="loading-spinner"></mat-spinner>
+    <form (ngSubmit)="onSubmitMultiple()" class="main-form"> <div class="form-element-container"><h3 class="form-label-like-header">Select desired Outputs:</h3>
+
+      <div><label> <input [(ngModel)]="generateGradingBool" name="generateGrades" type="checkbox">
+        Grade exercises with justifications
+      </label></div>
+
+      <div class="checkbox-container"><label> <input [(ngModel)]="generateExecuteTestsBool" name="generateTextialFeedback" type="checkbox">
+        Additionally Generate and Execute JUnit Tests
+      </label></div>
+    </div>
+
+
+      <div class="form-element-container-together">
+        <div class="form-element-container-tooltip">
+          <label for="zip-file"> <strong>.zip</strong> containing your <strong>.java</strong> files:<span class="mandatory-asterisk">*</span> </label>
+          <button type="button"  mat-icon-button matTooltip="{{helpTextZipFile}}" aria-label="Help with Task Description" class="small-icon">
+            <mat-icon>help_outline</mat-icon>
+          </button>
+        </div>
+        <br>
+        <input (change)="onZipFileSelected($event)" accept=".zip" id="zip-file" type="file">
+      </div>
+
+      <div class="form-element-container-together">
+        <div class="form-element-container-tooltip">
+          <label for="folder-name">Filter uploaded files:</label><br>
+          <button type="button"  mat-icon-button matTooltip="{{helpTextFolderName}}" aria-label="Help with Task Description" class="small-icon">
+            <mat-icon>help_outline</mat-icon>
+          </button>
+        </div>
+        <input (input)="onFolderNameChange($event)" [(ngModel)]="folderName" id="folder-name" name="folderName"
+               type="text">
+      </div>
+
+      <div class="form-element-container">
+        <div class="form-element-container-tooltip">
+          <label>Found Files from uploaded .zip:</label>
+          <button type="button"  mat-icon-button matTooltip="{{helpTextFoundFiles}}" aria-label="Help with Task Description" class="small-icon">
+            <mat-icon>help_outline</mat-icon>
+          </button>
+        </div>
+
+        <div class="found-files-container"> <div class="found-files-output"> <p *ngFor="let file of foundFiles">{{file}}</p> </div> </div> </div>
+
+      <div class="form-element-container-together"><label for="model-type">Select LLM:</label><br>
+        <select (change)="onModelChange($event)" [(ngModel)]="selectedModelType" id="model-type" name="model-type">
+          <option value="gpt-4o-mini">GPT 4o mini</option>
+          <option value="gpt-4o">GPT 4o</option>
+          <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+          <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+        </select></div>
+
+      <div class="form-element-container"><label for="api-token">API Token for LLM:<span class="mandatory-asterisk">*</span></label><br>
+        <input [(ngModel)]="apiToken" id="api-token" name="text" type="text"></div>
+
+      <div class="form-element-container">
+        <div class="form-element-container-tooltip">
+          <label for="task-description">Exercise Description:</label>
+          <button type="button"  mat-icon-button matTooltip="{{helpTextTaskDescription}}" aria-label="Help with Task Description" class="small-icon">
+            <mat-icon>help_outline</mat-icon>
+          </button>
+        </div>
+        <br>
+        <textarea [(ngModel)]="taskDescription" id="task-description" name="taskDescription" rows="4"></textarea>
+      </div>
+
+      <div class="form-element-container-together">
+        <label for="grading-scheme">Grading Scheme for Exercise (Text):</label>
+        <br>
+        <textarea [(ngModel)]="gradingScheme" id="grading-scheme" name="gradingScheme" rows="4"></textarea>
+      </div>
+
+      <div class="form-element-container"><label for="grading-scheme-file">Grading Scheme for Exercise
+        (CSV):</label><br>
+        <input (change)="onFileSelected($event)" accept=".csv" id="grading-scheme-file" type="file">
+      </div>
+
+      <div class="form-element-container-together"><label for="sample-solution">Exercise Sample Solution (Text):</label><br>
+        <textarea [(ngModel)]="sampleSolution" id="sample-solution" name="sample-solution" rows="4"></textarea>
+      </div>
+
+      <div class="form-element-container"><label for="sample-solution">Exercise Sample Solution (CSV):</label><br>
+        <input (change)="onFileSelectedSampleSolution($event)" accept=".csv" id="sample-solution-file" type="file"></div>
+
+
+      <div class="form-element-container"><label for="test-cases">Test cases for Exercise:</label><br>
+        <input [(ngModel)]="humanGeneratedTestCases" id="test-cases" name="text" type="text"></div>
+
+      <div class="form-element-container-together">
+        <button color="primary" mat-raised-button type="submit" [disabled]="isSubmitButtonDisabled">
+          Submit (~{{ getApproximateTokenCount() }} Tokens)
+        </button>
+        <button type="button" (click)="openGradingResultsDialog()" color="primary" mat-raised-button
+                [disabled]="isShowResultsButtonDisabled">Show Results
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .loading-spinner {
+    position: fixed; /* Changed to fixed positioning */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it's above other content */
+  }
+</style>

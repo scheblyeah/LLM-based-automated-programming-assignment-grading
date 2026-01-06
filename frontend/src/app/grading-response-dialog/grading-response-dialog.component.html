@@ -1,0 +1,59 @@
+<div class="dialog-header">
+  <h1>Grading and Test Results</h1>
+</div>
+<div class="dialog-container">
+  <mat-tab-group>
+    <!-- First Tab: Grading Results -->
+    <mat-tab label="Grading Results">
+      <ul>
+        <li *ngFor="let student of data.gradingResponses" [ngStyle]="getBackgroundStyle(student)">
+          <div (click)="toggleDetails(student)">
+            <strong>{{ student.studentName }}</strong> - {{ student.exerciseName }} <br>
+            Achieved: {{ student.totalAchievedPoints }} / {{ student.totalMaxPoints }}
+          </div>
+          <div *ngIf="student.showDetails">
+            <h3>Details:</h3>
+            <ul>
+              <li *ngFor="let subtask of student.gradingSchemeSubtasks" [ngStyle]="getBackgroundStyleGradingCriteria(subtask)">
+                {{ subtask.subtaskName }}: {{ subtask.achievedPoints }} / {{ subtask.maxPoints }}
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </mat-tab>
+
+    <mat-tab label="Grading Scheme">
+      <div class="grading-scheme-content">
+        <pre>{{ gradingSchemeContent }}</pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Generated Unit Tests" *ngIf="data.testResults.length > 0">
+      <div class="grading-scheme-content">
+        <pre>{{ generatedUnitTests }}</pre>
+      </div>
+    </mat-tab>
+
+    <!-- Second Tab: Test Run Results (Conditional) -->
+    <mat-tab label="Test Run Results" *ngIf="data.testResults.length > 0">
+      <div>
+        <ul>
+          <li *ngFor="let result of data.testResults" [ngStyle]="getBackgroundStyleTestResults(result)">
+            <strong>{{ result.studentName }}</strong>
+            <ul>
+              <li *ngFor="let test of result.unitTests" [ngStyle]="getBackgroundStyleUnitTest(test)">
+                {{ test.testName }}: {{ test.passedTest ? 'Passed' : 'Failed' }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>
+<div class="dialog-footer">
+  <button mat-raised-button color="primary" (click)="downloadCSV()">Download Results as CSV</button>
+  <button mat-raised-button color="primary" (click)="dialogRef.close()">Close</button>
+</div>

@@ -1,0 +1,114 @@
+li {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+li:hover {
+  background-color: #f5f5f5;
+}
+
+.dialog-container {
+  padding: 20px; /* Add space inside the dialog */
+  box-sizing: border-box; /* Ensure padding doesn't affect the set width/height */
+  height: 100%; /* Use the available height inside the fixed dialog */
+  overflow-y: auto; /* Allow scrolling if content exceeds the height */
+}
+
+
+.dialog-container .student {
+  margin-bottom: 10px; /* Add spacing between student items */
+}
+
+.dialog-header {
+  text-align: center; /* Center-align the title */
+  background-color: #f5f5f5; /* Light gray background */
+  padding: 20px; /* Add padding around the title */
+  margin-bottom: 20px; /* Add space below the header */
+  border-bottom: 2px solid #ddd; /* Optional: Add a subtle bottom border */
+  border-radius: 8px 8px 0 0; /* Rounded corners for a professional look */
+}
+
+.dialog-header h1 {
+  font-size: 24px; /* Set font size */
+  font-weight: bold; /* Make it stand out */
+  color: #333; /* Dark text color */
+  margin: 0; /* Remove default margin */
+}
+
+mat-dialog-container {
+  background-color: #f9f9f9 !important; /* Light grey background */
+  border-radius: 8px; /* Rounded corners for the dialog */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 0; /* Remove default padding */
+}
+
+.dialog-header {
+  text-align: center;
+  background-color: #f5f5f5; /* Light grey background for the header */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  border-radius: 8px 8px 0 0;
+}
+
+.dialog-container {
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+li {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+li:hover {
+  background-color: #f5f5f5;
+}
+
+.mat-tab-group {
+  margin-top: 20px;
+}
+
+.mat-tab-label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mat-tab-body-content {
+  padding: 20px;
+}
+
+/* Change the text and background color of the selected tab */
+.mat-tab-label.mat-tab-label-active {
+  color: white !important; /* Text color */
+  background-color: white !important; /* Background color */
+}
+
+/* Change the ink bar color */
+.mat-ink-bar {
+  background-color: white !important;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: center; /* Already here - keeps buttons centered */
+  gap: 20px;
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 15px; /* Add margin-bottom to move buttons up */
+}
+
+.grading-scheme-content {
+  padding: 16px;
+  white-space: pre-wrap; /* Preserve whitespace and wrap text */
+  font-family: monospace; /* Use a monospace font for better readability of code-like text */
+}
+
+
+

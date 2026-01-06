@@ -1,0 +1,39 @@
+@use '@angular/material' as mat;
+// Define your custom theme
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+@include mat.core();
+
+// Define a custom grayscale color palette
+$app-primary: mat.define-palette(mat.$grey-palette, 800, 500, 900); // Darker grey for primary
+$app-accent:  mat.define-palette(mat.$grey-palette, 500, 300, 700); // Medium grey for accent
+$app-warn:    mat.define-palette(mat.$red-palette, A200);      // Keep warn color as red for errors
+
+// Create the theme object
+$app-theme: mat.define-light-theme(( // Or mat.define-dark-theme for dark theme
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+  )
+));
+
+// Include theme styles for core and each component.
+@include mat.all-component-themes($app-theme);
+
+/* Optional: Customize typography if needed */
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto;//, "Helvetica Neue", sans-serif;
+  background-color: #f8f8f8; /* Light grey background for the body */
+  color: #333; /* Dark grey text color for better readability on light grey background */
+}
+
+/* Add general styles from your original styles.css if you still want them */
+body {
+  font-family: 'Roboto';//, sans-serif; /* Roboto is a font often used for professional sites */
+  background-color: #e0e0e0; /* A bit grey background - you can keep this or adjust the body background above */
+}
+
+
