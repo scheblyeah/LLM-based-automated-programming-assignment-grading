@@ -1,0 +1,47 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+Program
+program
+program.c
+Program.java
+Program.class
+Exercise1.class
+Exercise1.java
+Exercise2.class
+Exercise2.java
+Exercise3.class
+Exercise3.java
+Program.java
+ProgramTest.java
+Tests.class
+Tests.java
+junit-jupiter-api-5.10.0.jar
+junit-jupiter-engine-5.10.0.jar
+junit-platform-commons-1.10.0.jar
+junit-platform-console-standalone.jar
+junit-4.13.2.jar
+results.json
